@@ -1,0 +1,14 @@
+{
+  "name": "gitbook-plugin-smart-nav-collapse",
+  "version": "0.1.0",
+  "description": "Smart collapse plugin for Gitbook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "gitbook": ">1.x.x"
+  },
+  "author": "Matteo Scandolo",
+  "license": "Apache-2.0"
+}
