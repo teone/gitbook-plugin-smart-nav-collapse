@@ -1,6 +1,6 @@
 {
   "name": "gitbook-plugin-smart-nav-collapse",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Smart collapse plugin for Gitbook",
   "main": "index.js",
   "scripts": {
