@@ -24,7 +24,7 @@ and to use it add this to your `book.json`:
 
 ```json
 {
-    "plugins": ["toggle-chapters"]
+    "plugins": ["smart-nav-collapse"]
 }
 ```
 
