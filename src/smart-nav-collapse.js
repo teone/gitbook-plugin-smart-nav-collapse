@@ -6,7 +6,7 @@ require(["jQuery"], function($) {
 
     if (chapter.length != 0) {
 
-      $children = $chapter.children('ul.articles');
+      $children = chapter.children('ul.articles');
 
       if ($children.length > 0) {
         $children.show();
@@ -15,28 +15,32 @@ require(["jQuery"], function($) {
     }
   }
 
+  function addClickListener() {
+    $('li.chapter > span').on('click', function (e) {
+      e.preventDefault();
 
-  $all_chapters = $('li.chapter');
+      // hide all chapters
+      $('li.chapter').children('ul.articles').hide();
 
-  $all_chapters.on('click', function (e) {
-    e.stopPropagation();
-    $($all_chapters).children('ul.articles').hide();
-    $chapter = $(this);
+      // expand the chapter we clicked on
+      $chapter = $(this);
+      expand($chapter);
+
+      // expand the chapter that is currently active
+      $activeChapter = $('li.chapter.active');
+      expand($activeChapter);
+    });
+  }
+
+  gitbook.events.bind("page.change", function() {
+    addClickListener()
+
+    // hide all chapters
+    $('li.chapter').children('ul.articles').hide();
+
+    // expand the chapter that is currently active
+    $chapter = $('li.chapter.active');
     expand($chapter);
   });
-
-  // hide all chapters
-  $($all_chapters).children('ul.articles').hide();
-  $chapter = $('li.chapter.active');
-  expand($chapter);
-
-  // gitbook.events.bind("page.change", function() {
-  //
-  //   console.log("[smart-nav-collapse] Page changed")
-  //
-  //   $chapter = $('li.chapter.active');
-  //
-  //   expand($chapter);
-  // });
 
 });
